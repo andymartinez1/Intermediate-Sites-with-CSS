@@ -1,16 +1,13 @@
-/*
-COLORS:
-
-Light green: #7ed56f
-Medium green: #55c57a
-Dark green: #28b485
-
-*/
-
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
@@ -19,38 +16,29 @@ body {
   font-size: 16px;
   line-height: 1.7;
   color: #777;
+  box-sizing: border-box;
 }
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(
-      to right,
-      rgba(126, 213, 111, 0.8),
-      rgba(40, 180, 131, 0.8)
-    ),
-    url(../img/hero.jpg);
+  background-image: linear-gradient(to right, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   position: relative;
-
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
-
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 40px;
   left: 40px;
 }
-
-.logo {
+.header__logo {
   height: 35px;
 }
-
-.logo:hover {
+.header__logo:hover {
   animation: rotate360 1s;
 }
-
-.text-box {
+.header__text-box {
   position: absolute;
   top: 45%;
   left: 50%;
@@ -63,23 +51,19 @@ body {
   text-transform: uppercase;
   margin-bottom: 60px;
 }
-
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 60px;
   font-weight: 400;
   letter-spacing: 30px;
-
   animation-name: moveInLeft;
   animation-duration: 3s;
 }
-
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 18px;
-
   animation-name: moveInRight;
   animation-duration: 3s;
 }
@@ -94,7 +78,6 @@ body {
     transform: translateX(0);
   }
 }
-
 @keyframes moveInRight {
   0% {
     opacity: 0;
@@ -105,7 +88,6 @@ body {
     transform: translateX(0);
   }
 }
-
 @keyframes rotate360 {
   0% {
     opacity: 0;
@@ -116,10 +98,11 @@ body {
     transform: rotate(360deg);
   }
 }
-
-/* Initial state of button */
-.btn:link,
-.btn:visited {
+.btn {
+  /* Initial state of button */
+  /* ::after used to create a duplicate button behind the original */
+}
+.btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 15px 40px;
@@ -128,22 +111,25 @@ body {
   transition: all 0.2s;
   position: relative;
 }
-
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
+.btn:hover::after {
+  transform: scale(1.2);
+  opacity: 0;
+}
 .btn:active {
   transform: translateY(-1px);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
-
+.btn--white::after {
+  background-color: #fff;
+}
 .btn::after {
   content: "";
   display: inline-block;
@@ -155,13 +141,4 @@ body {
   left: 0;
   z-index: -1;
   transition: all 0.4s;
-}
-
-.btn-white::after {
-  background-color: #fff;
-}
-
-.btn:hover::after {
-  transform: scale(1.2);
-  opacity: 0;
 }

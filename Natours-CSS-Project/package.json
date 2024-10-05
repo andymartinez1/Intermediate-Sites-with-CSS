@@ -10,5 +10,8 @@
   "license": "ISC",
   "devDependencies": {
     "sass": "^1.79.4"
+  },
+  "dependencies": {
+    "natours": "file:"
   }
 }

@@ -20,5 +20,8 @@
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^11.0.0",
     "sass": "^1.79.4"
+  },
+  "dependencies": {
+    "nexter": "file:"
   }
 }

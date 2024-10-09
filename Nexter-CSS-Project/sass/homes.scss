@@ -4,7 +4,7 @@
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  grid-gap: 7rem;
+  gap: 7rem;
 }
 
 .home {
@@ -13,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
-  grid-row-gap: 3.5rem;
+  row-gap: 3.5rem;
 
   &__img {
     width: 100%;
